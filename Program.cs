@@ -33,15 +33,19 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
-
-
-
-
-
-
-
-
-
+// Console.Write("Введите число: ");
+// string stringNumber = Console.ReadLine();
+// int number; 
+// bool isNumber = int.TryParse(stringNumber, out number);
+// Console.WriteLine($"Длина строки(кол-во символов): {stringNumber.Length}");
+// if (isNumber && stringNumber.Length >= 3) // isNumber == True
+// {
+//     Console.WriteLine($"{stringNumber} => {stringNumber[2]}");
+// }
+// else
+// {
+//     Console.WriteLine("третьей цифры нет");
+// }
 // Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 // 6 -> да
 // 7 -> да
