@@ -3,6 +3,7 @@
 // 782 -> 8
 // 918 -> 1
 
+
 // Console.Write("Введите число: ");
 // string stringNumber = Console.ReadLine();
 // int number; 
@@ -16,6 +17,7 @@
 // {
 //     Console.WriteLine(" длина строки < 3 символов");
 // }
+
 
 // второй вариант решения задачи
 
@@ -33,6 +35,7 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
+
 // Console.Write("Введите число: ");
 // string stringNumber = Console.ReadLine();
 // int number; 
@@ -46,7 +49,23 @@
 // {
 //     Console.WriteLine("третьей цифры нет");
 // }
+
+
 // Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 // 6 -> да
 // 7 -> да
 // 1 -> нет
+// Console.Write("Введите число N: ");
+// int N= Convert.ToInt32(Console.ReadLine());
+// if (N >7 )
+// {
+//  Console.WriteLine($"{N} -> число больше дня недели");
+// }
+//  else if (N == 7 || N == 6)
+// {
+//  Console.WriteLine($"{N} -> да ");
+// }
+// else 
+// {
+//   Console.WriteLine($"{N} -> нет");
+// }
