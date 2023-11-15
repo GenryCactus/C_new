@@ -1,75 +1,73 @@
-﻿
-// Console.Write("Введите число: ");
-// string stringNumber = Console.ReadLine();
-// int number; 
-// bool isNumber = int.TryParse(stringNumber, out number);
-// if (isNumber && stringNumber.Length >= 6) 
-// {
-//     Console.WriteLine("Число не пятизначное");
-//     if ( stringNumber.Length <= 4) 
-//     {
-//      Console.WriteLine("Число не пятизначное");
-//     }
-// }
-// else if (stringNumber [0] == stringNumber[4] && stringNumber [1] == stringNumber[3])
-// {    
-//      Console.WriteLine($"{stringNumber} -> True");
-// }  
-// else
-// {
-//  Console.WriteLine($"{stringNumber} -> False");
-// }
+﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
 
 
-// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-// 3, 5 -> 243 (3⁵)
-// 2, 4 -> 16
+Console.Write("Введите длинну массива: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] array= GetArray(size) ;
+int count = GetOverZeroArray(array);
+PrintArray(array,count);
+int [] GetArray(int size)
+{
+    int[] res = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        res[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    return res;
+}
+int GetOverZeroArray(int []res)
+{
+    int overZero = 0;
+    for (int i = 0; i < size; i++)
+    {  
+        if (array[i]<0)
+        {
+            overZero++;
+        }
+    }
+    return overZero;
+ }
+ 
+void PrintArray(int[] array, int count)
+{
+    Console.WriteLine($"Чисел меньше нуля в массиве: [{String.Join("; ", array)}]->{count}");
+}
 
-// Console.Write("Введите число А: ");
-// int number = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите число B: ");
-// int Degreed = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine($"{number} в натуральной степени {Degreed} = {GetDegree(number, Degreed)}");
-// double GetDegree (int number,int Degreed)
-// { 
-//     int degree = Degreed ;
-//     int chapt = number;
-//     double pow = Math.Pow(chapt,degree );
-//     return pow ;
-// }
 
-// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-// 452 -> 11
-// 82 -> 10
-// 9012 -> 12
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
 
-// Console.Write("Введите число : ");
-// int number = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine($"Сумма всех чисел {number} -> {SumAllDigit(number)} ");
-// int SumAllDigit(int number)
-// {
-//  int result = 0 ;
-//  while (number> 0)
-//  {
-//   result+= number %10;
-//   number = number/10; 
-//  }
-//  return result;
-// }
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+Console.Write("Введите значение b1 : ");
+float b1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите значение k1 : ");
+float k1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите значение b2 : ");
+float b2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите значение k2 : ");
+float k2 = Convert.ToInt32(Console.ReadLine());
+float x = GetX(b1,b2,k1,k2);
+float y = GetY1(b1,k1,x);
+PrintGetCoordinat(x,y);
+float GetX(float b1 , float b2 ,float k1,float k2)
+{
+    x=0;
+ if((k1-k2)==0)
+ {
+    Console.WriteLine("Ошибка: Деление на ноль");
+    return x;
+ }
+ x = (b2-b1)/(k1-k2);
 
-// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
-// 6, 1, 33 -> [6, 1, 33]
-
-// int[] result = GetBinaryArray(8); 
-//  Console.WriteLine($"[{String.Join("; ", result)}]");
-
-// int[] GetBinaryArray(int size)
-// {
-//     int[] array = new int[size];
-//     for (int i = 0; i < array.Length; i++) // array.Length = size
-//     {
-//         array[i] = new Random().Next(0,100); 
-//     }
-//     return array;
-// }
+ return x;
+}
+float GetY1(float b1,float k1,float x)
+{
+    y = k1*x+b1;
+   return y;
+}
+void PrintGetCoordinat(float x,float y)
+{
+ Console.WriteLine($"b1 = {b1},k1 = {k1},b2 = {b1},k2 = {k2} -> ({x};{y})");
+}
