@@ -1,73 +1,66 @@
-﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-// 0, 7, 8, -2, -2 -> 2
-// 1, -7, 567, 89, 223-> 3
+﻿// Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+// M = 1; N = 5. -> "1, 2, 3, 4, 5"
+// M = 4; N = 8. -> "4, 6, 7, 8"
 
 
-Console.Write("Введите длинну массива: ");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] array= GetArray(size) ;
-int count = GetOverZeroArray(array);
-PrintArray(array,count);
-int [] GetArray(int size)
-{
-    int[] res = new int[size];
-    for (int i = 0; i < size; i++)
-    {
-        res[i] = Convert.ToInt32(Console.ReadLine());
-    }
-    return res;
-}
-int GetOverZeroArray(int []res)
-{
-    int overZero = 0;
-    for (int i = 0; i < size; i++)
-    {  
-        if (array[i]<0)
-        {
-            overZero++;
-        }
-    }
-    return overZero;
- }
- 
-void PrintArray(int[] array, int count)
-{
-    Console.WriteLine($"Чисел меньше нуля в массиве: [{String.Join("; ", array)}]->{count}");
-}
+
+// Console.Write("Введите число N: ");
+// int N = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите число M: ");
+// int M = Convert.ToInt32(Console.ReadLine());
+// // M = 1; N = 5
+// string PrintNumbers (int start, int end)
+// {
+//    if(start>end)return start.ToString();
+//     if (start == end) return start.ToString();
+    
+//     return (start + "\t" + PrintNumbers(start+1 , end));
+// }
+
+// Console.WriteLine(PrintNumbers(M, N));
 
 
-// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
 
-// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
-Console.Write("Введите значение b1 : ");
-float b1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите значение k1 : ");
-float k1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите значение b2 : ");
-float b2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите значение k2 : ");
-float k2 = Convert.ToInt32(Console.ReadLine());
-float x = GetX(b1,b2,k1,k2);
-float y = GetY1(b1,k1,x);
-PrintGetCoordinat(x,y);
-float GetX(float b1 , float b2 ,float k1,float k2)
-{
-    x=0;
- if((k1-k2)==0)
- {
-    Console.WriteLine("Ошибка: Деление на ноль");
-    return x;
- }
- x = (b2-b1)/(k1-k2);
+// Console.Write("Введите M: ");
+// int M = Convert.ToInt32(Console.ReadLine());
 
- return x;
-}
-float GetY1(float b1,float k1,float x)
+// Console.Write("Введите N: ");
+// int N = Convert.ToInt32(Console.ReadLine());
+// // n = 2, p = 3
+// //
+// int Sum(int number, int secondumber)
+// {
+//     if (secondumber == number) return number; // number^1 = number 
+//     if (secondumber == 0) return 1; // Любое число в 0 степени = 1
+//     return number + Sum(number+1, secondumber );
+// }
+
+// Console.WriteLine($"Сумма натуральных элементов от {M} до {N} = {Sum(M,N)}");
+
+// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 29
+
+Console.Write("Введите M: ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Введите N: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+int Akerman(int x,int y)
 {
-    y = k1*x+b1;
-   return y;
-}
-void PrintGetCoordinat(float x,float y)
-{
- Console.WriteLine($"b1 = {b1},k1 = {k1},b2 = {b1},k2 = {k2} -> ({x};{y})");
-}
+  if(x<0||y<0)return 0;
+
+ if (x == 0)
+    return y + 1;
+  else
+    if ((x != 0) && (y == 0))
+      return Akerman(x - 1, 1);
+    else
+      return Akerman(x - 1, Akerman(x, y - 1));
+  }
+
+
+Console.WriteLine($"Сумма натуральных элементов от {m} до {n} = {Akerman(m,n)}");
